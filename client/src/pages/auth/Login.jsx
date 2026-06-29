@@ -27,27 +27,28 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const response = await API.post("/auth/login", data);
-      const { success, message } = response.data;
-      const accessToken = response.data.accessToken ?? response.data.data;
+
+      const { success, message, data: resData } = response.data;
+
+      const accessToken = resData?.accessToken;
 
       if (!success) {
         toast.error(message || "Login failed");
         return;
       }
 
-      if (typeof accessToken !== 'string' || !accessToken.trim()) {
-        throw new Error('Login failed: accessToken missing or invalid');
+      if (!accessToken) {
+        throw new Error("Login failed: accessToken missing");
       }
 
       toast.success(message);
-      localStorage.setItem('accessToken', accessToken);
-      navigate('/dashboard');
+      localStorage.setItem("accessToken", accessToken);
+
+      navigate("/dashboard");
     } catch (error) {
-      toast.error(
-        error.response?.data?.message || "Login failed"
-      );
+      toast.error(error.response?.data?.message || error.message || "Login failed");
     }
-  }
+  };
 
   return (
     <div className={authPage}>
