@@ -76,14 +76,6 @@ const App = () => {
               </PrivateRoutes>
             }
           />
-          <Route
-            path='/dashboard/calendar'
-            element={
-              <PrivateRoutes>
-                <Calendar />
-              </PrivateRoutes>
-            }
-          />
 
           <Route
             path='/dashboard/settings'

@@ -86,30 +86,18 @@ const Statistics = () => {
         <DashboardLayout activeKey="analytics">
             <div className="mx-auto max-w-7xl">
                 <div className="mb-5 flex items-center justify-between gap-3">
-                    <h2 className="brand-type text-4xl uppercase leading-none sm:text-5xl">Statistics</h2>
+                    <h2 className="brand-type text-4xl uppercase leading-none sm:text-5xl">
+                        Statistics
+                    </h2>
                 </div>
 
-                <section className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                    {statMeta.map((item) => {
-                        const Icon = item.icon
-                        return (
-                            <article key={item.key} className="border-2 border-border bg-card p-4 shadow-brutal">
-                                <div className="flex items-start justify-between gap-3">
-                                    <p className="max-w-24 text-xs font-black uppercase leading-tight">{item.label}</p>
-                                    <div className={`grid h-10 w-10 place-items-center border-2 border-border ${item.tone}`}>
-                                        <Icon className="text-2xl" />
-                                    </div>
-                                </div>
-                                <p className="brand-type mt-3 text-5xl leading-none">{stats[item.key] ?? 0}</p>
-                            </article>
-                        )
-                    })}
-                </section>
-
                 {loading ? (
-                    <div className="py-10 text-center text-sm font-black uppercase">Loading...</div>
+                    <div className="py-10 text-center text-sm font-black uppercase">
+                        Loading...
+                    </div>
                 ) : (
                     <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+
                         <ChartPanel title="Applications Over Time">
                             <ResponsiveContainer width="100%" height="100%">
                                 <LineChart data={monthly} margin={{ top: 12, right: 16, bottom: 0, left: -20 }}>
@@ -182,6 +170,7 @@ const Statistics = () => {
                                 </BarChart>
                             </ResponsiveContainer>
                         </ChartPanel>
+
                     </section>
                 )}
             </div>
