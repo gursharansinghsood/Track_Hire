@@ -97,7 +97,7 @@ const AddApplication = () => {
                                         value={formData[field.name]}
                                         onChange={(event) => updateField(field.name, event.target.value)}
                                         required={field.required}
-                                        className="min-w-0 flex-1 bg-transparent text-sm font-medium normal-case outline-none"
+                                        className="min-w-0 flex-1 bg-transparent text-sm font-medium normal-case outline-none text-black-700"
                                     >
                                         <option value="">Select {field.label}</option>
                                         {field.options.map((option) => (
