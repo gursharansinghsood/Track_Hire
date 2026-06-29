@@ -6,34 +6,36 @@ const clearAuthAndRedirect = () => {
 };
 
 export const API = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
+    baseURL: import.meta.env.VITE_BACKEND_URL, // MUST be set in Vercel
     withCredentials: true,
 });
 
+// REQUEST INTERCEPTOR
 API.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("accessToken");
 
-        if (!config.headers) config.headers = {};
-        if (token) config.headers.Authorization = `Bearer ${token}`;
-        else delete config.headers.Authorization;
+        config.headers = config.headers || {};
+
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
 
         return config;
     },
     (error) => Promise.reject(error)
 );
 
+// RESPONSE INTERCEPTOR
 API.interceptors.response.use(
     (response) => response,
     (error) => {
         const status = error?.response?.status;
-        if (status === 401) clearAuthAndRedirect();
+
+        if (status === 401) {
+            clearAuthAndRedirect();
+        }
+
         return Promise.reject(error);
     }
 );
-
-
-
-
-
-

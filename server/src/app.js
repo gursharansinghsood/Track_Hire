@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 app.use(cookieParser())
 
+
 app.get('/health', (req, res) => res.status(200).json({ message: "Server is Running" }))
 
 app.use('/auth', authRoute)
