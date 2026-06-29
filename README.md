@@ -167,5 +167,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For support, email support@trackhire.com or open an issue in the repository.
+For support, email verifymail2005@gmail.com or open an issue in the repository.
 
