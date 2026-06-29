@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 180ms;
+  transition-timing-function: ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+.brand-type {
+  font-family: Anton, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 0;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* Placeholder transition */
+input::placeholder,
+textarea::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+  transition: color 300ms ease-in-out;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --color-card: var(--card);
+  --color-border: var(--border);
+
+  --shadow-brutal: var(--shadow-brutal);
+  --shadow-brutal-inset: var(--shadow-brutal-inset);
+  --shadow-brutal-lg: var(--shadow-brutal-lg);
+}
+
+/* ================= LIGHT ================= */
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --placeholder: rgba(0, 0, 0, 0.55);
+
+  --primary: #ffd700;
+  --secondary: #7c3aed;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --card: #ffffff;
+  --border: #000000;
+
+  /* Neo Brutalist */
+  --shadow-brutal: 4px 4px 0 #000000;
+  --shadow-brutal-lg: 7px 7px 0 #000000;
+
+  /* Inner Depth */
+  --shadow-brutal-inset:
+    inset 0 0 3px rgba(0, 0, 0, 0.35),
+    inset 0 0 8px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ================= DARK ================= */
+
+.dark {
+  --bg: #111111;
+  --text: #ffffff;
+  --placeholder: rgba(255, 255, 255, 0.55);
+
+  --primary: #ffd700;
+  --secondary: #8b5cf6;
+
+  --success: #22c55e;
+  --danger: #f87171;
+
+  --card: #1e1e1e;
+  --border: #ffffff;
+
+  /* Neo Brutalist */
+  --shadow-brutal: 4px 4px 0 #ffffff;
+  --shadow-brutal-lg: 7px 7px 0 #ffffff;
+
+  /* Inner Depth */
+  --shadow-brutal-inset:
+    inset 0 0 3px rgba(255, 255, 255, 0.25),
+    inset 0 0 8px rgba(255, 255, 255, 0.12);
+}

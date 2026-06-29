@@ -1,0 +1,6 @@
+node_modules/      → installed dependencies (ignore)
+dist/ / build/     → production build files (ignore)
+.env               → sensitive environment variables (ignore)
+.vscode/           → VS Code editor settings (ignore)
+/server/node_modules
+client/.env
