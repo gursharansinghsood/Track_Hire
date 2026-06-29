@@ -16,7 +16,7 @@ const SidebarDrawer = ({ isOpen, onClose, items, activeKey }) => {
 
             <div className="relative h-full w-[84vw] max-w-[320px] border-r-2 border-border bg-bg">
                 <div className="p-3 border-b-2 border-border flex items-center justify-between">
-                    <div className="brand-type text-2xl">MENU</div>
+                    <div className="brand-type text-2xl text-text">MENU</div>
                     <button
                         type="button"
                         onClick={onClose}
