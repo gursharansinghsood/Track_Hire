@@ -62,7 +62,7 @@ const Statistics = () => {
         fetchAll()
     }, [])
 
-    
+
 
     const statusDistribution = charts?.statusDistribution || []
     const topCompanies = charts?.topCompanies || []
