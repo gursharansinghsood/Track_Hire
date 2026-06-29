@@ -3,8 +3,6 @@ import {
     Bar,
     BarChart,
     Cell,
-    Line,
-    LineChart,
     Pie,
     PieChart,
     ResponsiveContainer,
@@ -66,7 +64,6 @@ const Statistics = () => {
 
     
 
-    const monthly = charts?.monthly || []
     const statusDistribution = charts?.statusDistribution || []
     const topCompanies = charts?.topCompanies || []
     const bySource = charts?.bySource || []
@@ -87,22 +84,6 @@ const Statistics = () => {
                 ) : (
                     <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
 
-                        <ChartPanel title="Applications Over Time">
-                            <ResponsiveContainer width="100%" height="100%">
-                                <LineChart data={monthly} margin={{ top: 12, right: 16, bottom: 0, left: -20 }}>
-                                    <XAxis dataKey="date" {...axisProps} />
-                                    <YAxis {...axisProps} />
-                                    <Tooltip contentStyle={{ border: '2px solid var(--border)', boxShadow: 'var(--shadow-brutal)' }} />
-                                    <Line
-                                        type="monotone"
-                                        dataKey="applications"
-                                        stroke="var(--success)"
-                                        strokeWidth={4}
-                                        dot={{ r: 5, fill: 'var(--primary)', stroke: 'var(--border)', strokeWidth: 2 }}
-                                    />
-                                </LineChart>
-                            </ResponsiveContainer>
-                        </ChartPanel>
 
                         <ChartPanel title="Status Distribution">
                             <div className="grid h-full grid-cols-1 items-center gap-4 sm:grid-cols-[1fr_0.8fr]">
