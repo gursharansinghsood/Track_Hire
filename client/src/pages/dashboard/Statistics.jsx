@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     Bar,
     BarChart,
@@ -16,7 +16,6 @@ import toast from 'react-hot-toast'
 import DashboardLayout from '../../layouts/DashboardLayout'
 import { DashboardAPI } from '../../services/dashboardApi'
 
-import { statMeta } from '../../utils/dashboardData'
 
 const axisProps = {
     tick: { fill: 'var(--text)', fontSize: 11, fontWeight: 800 },
@@ -41,7 +40,6 @@ const toneByStatus = {
 const Statistics = () => {
     const [loading, setLoading] = useState(true)
     const [charts, setCharts] = useState(null)
-    const [summary, setSummary] = useState(null)
 
     useEffect(() => {
         const fetchAll = async () => {
@@ -55,7 +53,6 @@ const Statistics = () => {
                 if (!summaryRes.data?.success) throw new Error('Failed to load summary')
                 if (!chartsRes.data?.success) throw new Error('Failed to load charts')
 
-                setSummary(summaryRes.data.summary || {})
                 setCharts(chartsRes.data.charts || null)
             } catch (e) {
                 toast.error(e?.response?.data?.message || e.message || 'Failed to load statistics')
@@ -67,15 +64,7 @@ const Statistics = () => {
         fetchAll()
     }, [])
 
-    const stats = useMemo(() => {
-        // Ensure keys exist for rendering
-        return {
-            total: summary?.total ?? 0,
-            interviews: summary?.interviews ?? 0,
-            offers: summary?.offers ?? 0,
-            rejected: summary?.rejected ?? 0,
-        }
-    }, [summary])
+    
 
     const monthly = charts?.monthly || []
     const statusDistribution = charts?.statusDistribution || []
