@@ -44,7 +44,7 @@ const Dashboard = () => {
       <div className="mx-auto max-w-7xl">
         <section className="relative mb-6 border-2 border-border bg-card p-5 shadow-brutal-lg">
           <div className="absolute right-0 top-0 h-full w-4 border-l-2 border-border bg-success" />
-          <p className="text-sm font-black uppercase">Welcome back, John!</p>
+          <p className="text-sm font-black uppercase">Welcome back</p>
           <h2 className="brand-type mt-1 text-4xl uppercase leading-none sm:text-5xl">Keep tracking. Keep winning.</h2>
           {apiFailed && (
             <p className="mt-3 max-w-2xl border-2 border-border bg-primary px-3 py-2 text-xs font-black uppercase shadow-brutal">
